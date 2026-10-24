@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>税法一冲刺 · 模拟练习</title>
+<style>
+  :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2330;--sub:#6b7280;--line:#e5e7eb;--acc:#2563eb;--ok:#15803d;--bad:#dc2626;--warn:#b45309}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink)}
+  header{position:sticky;top:0;z-index:9;background:#111827;color:#fff;padding:12px 16px}
+  header h1{margin:0;font-size:17px}
+  header p{margin:4px 0 0;font-size:12px;color:#9ca3af}
+  nav{display:flex;gap:8px;padding:10px 12px;position:sticky;top:57px;z-index:9;background:var(--bg)}
+  nav button{flex:1;padding:9px 0;border:1px solid var(--line);background:var(--card);border-radius:10px;font-size:14px}
+  nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+  main{padding:4px 12px 40px;max-width:760px;margin:0 auto}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0}
+  .setbtn{display:block;width:100%;text-align:left;padding:14px;border:1px solid var(--line);background:var(--card);border-radius:12px;margin:10px 0;font-size:15px}
+  .setbtn small{color:var(--sub)}
+  .qtag{font-size:12px;color:var(--acc);font-weight:600}
+  .stem{font-size:15px;line-height:1.65;margin:8px 0 10px;white-space:pre-wrap}
+  .opt{display:block;width:100%;text-align:left;padding:10px 12px;margin:6px 0;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:14px;line-height:1.5}
+  .opt.sel{border-color:var(--acc);background:#eff6ff}
+  .opt.right{border-color:var(--ok);background:#f0fdf4}
+  .opt.wrong{border-color:var(--bad);background:#fef2f2}
+  .row{display:flex;gap:8px;margin-top:10px}
+  .btn{flex:1;padding:10px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:14px}
+  .btn.pri{background:var(--acc);color:#fff;border-color:var(--acc)}
+  .exp{display:none;margin-top:10px;padding:10px 12px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;font-size:13.5px;line-height:1.65;white-space:pre-wrap}
+  .exp.show{display:block}
+  .verdict{font-weight:700}
+  .verdict.ok{color:var(--ok)} .verdict.bad{color:var(--bad)}
+  input.num{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:15px}
+  .meta{color:var(--sub);font-size:12.5px}
+  .score{font-size:26px;font-weight:800}
+  .bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--acc)}
+  .timer{font-variant-numeric:tabular-nums;font-weight:700}
+  .empty{color:var(--sub);text-align:center;padding:28px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>税法一冲刺 · 模拟练习</h1>
+  <p>2026 年税务师考试 · 11 月 14 日开考｜进度自动保存在本机浏览器</p>
+</header>
+<nav>
+  <button id="tab-practice" class="on" onclick="showTab('practice')">按套练习</button>
+  <button id="tab-exam" onclick="showTab('exam')">模拟考试</button>
+  <button id="tab-wrong" onclick="showTab('wrong')">错题本</button>
+</nav>
+<main id="app"></main>
+<script>
+const SETS = [{"name": "第1天 · 征税范围与纳税人", "questions": [{"id": "d1q1", "type": "single", "stem": "根据《增值税法》，下列各项中属于增值税应税交易的是（ ）。", "options": {"A": "员工为受雇单位提供服务取得工资", "B": "单位取得银行存款利息收入", "C": "单位销售自产货物取得收入", "D": "税务机关收取行政事业性收费"}, "answer": "C", "unit": "", "explain": "C。《增值税法》第三条：在境内销售货物、服务、无形资产、不动产及进口货物的单位和个人为纳税人。A、B、D 分别对应第六条「不属于应税交易」的情形（员工工资服务、存款利息、行政事业性收费）。"}, {"id": "d1q2", "type": "single", "stem": "下列关于增值税境内应税交易的表述，正确的是（ ）。", "options": {"A": "境外单位向境内单位提供在境内消费的咨询服务，属于境内应税交易", "B": "销售货物以购买方所在地判断是否在境内发生", "C": "销售不动产以销售方所在地判断是否在境内发生", "D": "境外单位在境外向境内个人提供的、在境外现场消费的服务，属于境内应税交易"}, "answer": "A", "unit": "", "explain": "A。第四条：销售服务、无形资产的，服务、无形资产在境内消费，或者销售方为境内单位和个人的，属于境内应税交易。B 错在判断标准是货物起运地/所在地；C 应以不动产所在地判断；D 在境外现场消费的服务不属于境内应税交易。"}, {"id": "d1q3", "type": "single", "stem": "《增值税法》规定的小规模纳税人标准是（ ）。", "options": {"A": "年应征增值税销售额未超过 50 万元", "B": "年应征增值税销售额未超过 100 万元", "C": "年应征增值税销售额未超过 500 万元", "D": "年应征增值税销售额未超过 800 万元"}, "answer": "C", "unit": "", "explain": "C。第九条：小规模纳税人指年应征增值税销售额未超过 500 万元的纳税人。"}, {"id": "d1q4", "type": "single", "stem": "下列关于增值税纳税人分类管理的表述，正确的是（ ）。", "options": {"A": "年应征增值税销售额超过规定标准的纳税人，一律不得按简易计税", "B": "小规模纳税人会计核算健全、能提供准确税务资料的，可以向主管税务机关办理登记，按一般计税方法计算缴纳增值税", "C": "纳税人一经登记为一般纳税人，可以自由转回小规模纳税人", "D": "个体工商户不能登记为一般纳税人"}, "answer": "B", "unit": "", "explain": "B。第九条第二款：小规模纳税人会计核算健全、能提供准确税务资料的，可办理登记按一般计税方法计税。A、C、D 均错（登记后不得任意转回；个体工商户可以登记）。"}, {"id": "d1q5", "type": "single", "stem": "境外单位在境内发生应税交易，未在境内设经营机构的，增值税扣缴义务人是（ ）。", "options": {"A": "境外单位的境内代理人（无条件）", "B": "购买方", "C": "税务机关", "D": "提供劳务发生地的主管税务机关"}, "answer": "B", "unit": "", "explain": "B。第十五条：境外单位和个人在境内发生应税交易，以购买方为扣缴义务人（按规定委托境内代理人申报的除外）。"}, {"id": "d1q6", "type": "single", "stem": "某商场销售家电的同时提供送货上门服务，家电销售额与送货服务费分别核算。下列处理正确的是（ ）。", "options": {"A": "全部按销售货物的税率计算", "B": "全部按服务 6% 税率计算", "C": "分别按各自适用的税率计算；若未分别核算，从高适用税率", "D": "送货服务费免税"}, "answer": "C", "unit": "", "explain": "C。第十二条：发生两项以上涉及不同税率、征收率的应税交易，应分别核算；未分别核算的，从高适用税率。"}, {"id": "d1q7", "type": "multi", "stem": "下列各项中，属于增值税征税范围的有（ ）。", "options": {"A": "销售货物", "B": "进口货物", "C": "转让无形资产", "D": "取得存款利息收入", "E": "销售不动产"}, "answer": "ABCE", "unit": "", "explain": "ABCE。D 存款利息属于不属于应税交易的情形，不在征税范围内。"}, {"id": "d1q8", "type": "multi", "stem": "下列关于一般纳税人登记的表述，正确的有（ ）。", "options": {"A": "年应征增值税销售额超过规定标准的，应当办理一般纳税人登记", "B": "小规模纳税人会计核算健全的，可以登记按一般计税方法计税", "C": "年应征增值税销售额未超过标准的纳税人，一律按小规模纳税人管理，不得选择按一般计税方法计税", "D": "个体工商户年应征增值税销售额超过标准的，可以暂不办理一般纳税人登记"}, "answer": "AB", "unit": "", "explain": "AB。C 错：未超标但会计核算健全的可选择登记按一般计税；D 错：个体工商户超标同样应当登记。注意本题与第 4 题互为印证，是新法第九条的两种考法。"}, {"id": "d1q9", "type": "calc", "stem": "某一般纳税人 2026 年 3 月销售货物取得含税销售额 226 万元（税率 13%），当月购进货物取得增值税专用发票注明税额 20 万元。计算当月应纳增值税。", "options": {}, "answer": 6.0, "unit": "万元", "explain": "销项税额＝226÷(1＋13%)×13%＝26（万元）；应纳税额＝26－20＝**6 万元**。"}, {"id": "d1q10", "type": "calc", "stem": "某企业进口一批货物，关税计税价格 200 万元，关税税率 10%，货物适用增值税税率 13%（不涉及消费税）。计算进口环节应纳增值税。", "options": {}, "answer": 28.6, "unit": "万元", "explain": "关税＝200×10%＝20（万元）；组成计税价格＝200＋20＝220（万元）；进口增值税＝220×13%＝**28.6 万元**。第十四条：进口货物按组成计税价格乘以适用税率，组成计税价格＝关税计税价格＋关税＋消费税。"}]}, {"name": "第2天 · 视同应税交易与税率", "questions": [{"id": "d2q1", "type": "single", "stem": "根据《增值税法》，下列情形属于视同应税交易的是（ ）。", "options": {"A": "单位将自产货物用于集体福利", "B": "单位将外购货物用于集体福利", "C": "单位将自产货物移送外县分支机构统一销售", "D": "单位将外购货物用于个人消费"}, "answer": "A", "unit": "", "explain": "A。第五条视同应税交易仅三项：（一）自产或委托加工货物用于集体福利或个人消费；（二）无偿转让货物；（三）无偿转让无形资产、不动产、金融商品。B、D 的「外购货物用于福利/个人消费」不在其列（处理方式是进项不得抵扣）；C「移送分支机构」是旧条例的视同项目，新法已删除——这是 2026 年最典型的变化题。"}, {"id": "d2q2", "type": "single", "stem": "增值税一般纳税人将外购的空调作为福利发放给职工，正确的税务处理是（ ）。", "options": {"A": "视同应税交易，计算销项税额", "B": "不视同应税交易，其进项税额不得抵扣", "C": "视同应税交易，但可以抵扣进项税额", "D": "按简易计税方法计税"}, "answer": "B", "unit": "", "explain": "B。外购货物用于集体福利不视同应税交易，但其进项税额不得抵扣（已抵扣的作转出）。"}, {"id": "d2q3", "type": "single", "stem": "下列各项中，不属于应税交易、不征收增值税的是（ ）。", "options": {"A": "销售不动产取得的收入", "B": "金融商品转让取得的收入", "C": "单位因房屋被依法征收取得的补偿收入", "D": "提供收派服务取得的收入"}, "answer": "C", "unit": "", "explain": "C。第六条：依照法律规定被征收、征用而取得补偿，不属于应税交易。A、B、D 均在征税范围内。"}, {"id": "d2q4", "type": "single", "stem": "下列业务中，适用 9% 税率的是（ ）。", "options": {"A": "有形动产租赁服务", "B": "基础电信服务", "C": "增值电信服务", "D": "加工修理修配服务"}, "answer": "B", "unit": "", "explain": "B。第十条：基础电信、交通运输、邮政、建筑、不动产租赁、销售不动产、转让土地使用权及列举货物适用 9%；有形动产租赁、加工修理修配为 13%；增值电信为 6%。"}, {"id": "d2q5", "type": "single", "stem": "《增值税法》规定的简易计税方法征收率为（ ）。", "options": {"A": "1%", "B": "2%", "C": "3%", "D": "5%"}, "answer": "C", "unit": "", "explain": "C。第十一条：简易计税征收率为 3%。"}, {"id": "d2q6", "type": "single", "stem": "下列关于增值税零税率的表述，正确的是（ ）。", "options": {"A": "出口货物适用零税率", "B": "销售农产品适用零税率", "C": "小规模纳税人适用零税率", "D": "免税项目与零税率项目的进项税处理相同"}, "answer": "A", "unit": "", "explain": "A。出口货物税率为零（国务院另有规定除外）。D 错：免税项目进项不得抵扣，零税率可享受退（免）税，二者处理不同——客观题高频对比点。"}, {"id": "d2q7", "type": "multi", "stem": "根据《增值税法》，下列情形属于视同应税交易的有（ ）。", "options": {"A": "单位将自产货物用于个人消费", "B": "个体工商户无偿转让外购货物", "C": "单位无偿转让不动产", "D": "单位将货物移送设在外市的分支机构销售", "E": "单位将委托加工货物用于集体福利"}, "answer": "ABCE", "unit": "", "explain": "ABCE。逐项对照第五条：A 对应第一项自产用于个人消费；B 对应第二项无偿转让货物（新法不限于自产，外购无偿转让同样视同）；C 对应第三项；E 对应第一项委托加工用于集体福利。D 移送分支机构新法已删除，不选。"}, {"id": "d2q8", "type": "multi", "stem": "下列各项中，不属于增值税应税交易的有（ ）。", "options": {"A": "员工为受雇单位提供取得工资的服务", "B": "取得存款利息收入", "C": "收取政府性基金", "D": "单位转让金融商品", "E": "依照法律规定被征用而取得补偿"}, "answer": "ABCE", "unit": "", "explain": "ABCE。逐项对照第六条四项不属于应税交易的情形；D 转让金融商品属于应税交易。"}, {"id": "d2q9", "type": "calc", "stem": "某小规模纳税人 2026 年第一季度取得含税销售额 515,000 元（适用征收率 3%，不考虑阶段性优惠）。计算应纳增值税。", "options": {}, "answer": 15000.0, "unit": "元", "explain": "应纳税额＝515,000÷(1＋3%)×3%＝500,000×3%＝**15,000 元**。"}, {"id": "d2q10", "type": "calc", "stem": "某一般纳税人销售自己使用过的、购入时不得抵扣且未抵扣进项税额的固定资产，取得含税售价 103,000 元（按简易办法依照 3% 征收率减按 2% 征收）。计算应纳增值税。", "options": {}, "answer": 2000.0, "unit": "元", "explain": "应纳税额＝103,000÷(1＋3%)×2%＝100,000×2%＝**2,000 元**。注意分母用征收率 3% 换算不含税价，税率（征收负担）用 2%——这类「3% 换算、2% 计算」是固定套路。"}]}, {"name": "第3天 · 销项与销售额", "questions": [{"id": "d3q1", "type": "single", "stem": "纳税人销售货物向购买方收取的下列款项中，不属于价外费用的是（ ）。", "options": {"A": "手续费", "B": "违约金", "C": "包装费", "D": "受托加工应税消费品代收代缴的消费税"}, "answer": "D", "unit": "", "explain": "D。价外费用包括向购买方收取的手续费、违约金、包装费、赔偿金等；受托加工应税消费品代收代缴的消费税不属于销售方的价外费用。"}, {"id": "d3q2", "type": "single", "stem": "纳税人采取折扣方式销售货物，下列处理正确的是（ ）。", "options": {"A": "折扣额与销售额在同一张发票的金额栏分别注明的，可按折扣后的销售额计税", "B": "折扣额另开发票的，也可以从销售额中扣除", "C": "折扣额只要在合同中注明即可从销售额中扣除", "D": "折扣销售一律按原价计税"}, "answer": "A", "unit": "", "explain": "A。折扣销售：销售额和折扣额在同一张发票的金额栏分别注明的，可按折扣后的销售额计算；另开发票或只在备注栏注明的，不得扣除。"}, {"id": "d3q3", "type": "single", "stem": "纳税人采取预收款方式销售货物的，关于销售额与纳税义务，下列表述正确的是（ ）。", "options": {"A": "预收款一律在收款当天全额计税", "B": "销售折扣（现金折扣）可以从销售额中扣除", "C": "还本销售的销售额不得减除还本支出", "D": "以物易物不属于销售行为"}, "answer": "C", "unit": "", "explain": "C。还本销售以货物销售价格为销售额，不得减除还本支出。A 错：预收款方式的纳税义务发生时间有专门规则（如生产销售大型货物、建筑服务预收款仅预缴），不能一概而论；B 错：销售折扣（现金折扣）不得从销售额中扣除；D 错：以物易物双方均应作购销处理。"}, {"id": "d3q4", "type": "single", "stem": "关于以旧换新销售，正确的是（ ）。", "options": {"A": "一律按新货物的同期销售价格确定销售额", "B": "金银首饰以旧换新，应按销售方实际收取的不含增值税的全部价款确定销售额", "C": "一般货物以旧换新应按差价计税", "D": "以旧换新收取的旧货作价可以从销售额中扣除"}, "answer": "B", "unit": "", "explain": "B。金银首饰以旧换新按实际收取的不含增值税的全部价款计税；一般货物以旧换新按新货物同期销售价格确定销售额，不扣减旧货收购价（A、C、D 错）。"}, {"id": "d3q5", "type": "single", "stem": "某企业销售啤酒收取包装物押金，押金单独记账、约定一年内返还。下列处理正确的是（ ）。", "options": {"A": "收取当期即并入销售额计税", "B": "逾期未退没收的押金，应按所包装货物的适用税率计算销项税额", "C": "押金一律不征税", "D": "押金按征收率简易计税"}, "answer": "B", "unit": "", "explain": "B。一般货物（啤酒等）包装物押金单独记账、未逾期的不并入销售额，逾期未退或没收时按所包装货物税率计税。注意对比：白酒等其他酒类的押金在收取当期即并入销售额——第 8 天消费税部分还会再遇到。"}, {"id": "d3q6", "type": "single", "stem": "纳税人销售价格明显偏低且无正当理由的，税务机关核定销售额的第一个顺序是（ ）。", "options": {"A": "按组成计税价格核定", "B": "按纳税人最近时期同类货物的平均销售价格核定", "C": "按其他纳税人最近时期同类货物的平均销售价格核定", "D": "按市场同类货物平均价格核定"}, "answer": "B", "unit": "", "explain": "B。核定顺序：①纳税人最近时期同类货物平均销售价格 → ②其他纳税人最近时期同类货物平均销售价格 → ③组成计税价格（成本×(1＋成本利润率）)。"}, {"id": "d3q7", "type": "multi", "stem": "下列款项中，属于增值税价外费用的有（ ）。", "options": {"A": "向购买方收取的延期付款利息", "B": "向购买方收取的包装物租金", "C": "受托加工应税消费品代收代缴的消费税", "D": "同时符合规定条件的代垫运输费用", "E": "向购买方收取的赔偿金"}, "answer": "ABE", "unit": "", "explain": "ABE。C 代收代缴的消费税不属于；D 同时符合条件（承运部门开票给购买方、纳税人转交）的代垫运费不属于价外费用。"}, {"id": "d3q8", "type": "multi", "stem": "下列关于特殊销售方式的表述，正确的有（ ）。", "options": {"A": "采取商业折扣销售，折扣额与销售额在同一张发票上分别注明的，可按折扣后金额计税", "B": "采取以旧换新方式销售金银首饰，按实际收取的差价款计税", "C": "采取还本方式销售货物，其销售额就是货物的销售价格，不得扣除还本支出", "D": "直销企业先将货物销售给直销员，再由直销员销售给消费者的，直销员环节不征税"}, "answer": "ABC", "unit": "", "explain": "ABC。D 错：直销员将货物销售给消费者时，直销员为增值税纳税人，并非不征税。"}, {"id": "d3q9", "type": "calc", "stem": "某一般纳税人当月销售货物取得含税销售额 226 万元（税率 13%），另向购买方收取价外费用 11.3 万元（含税）。计算当月销项税额。", "options": {}, "answer": 27.3, "unit": "万元", "explain": "销项税额＝(226＋11.3)÷(1＋13%)×13%＝237.3÷1.13×13%＝210×13%＝**27.3 万元**。价外费用为含税收入，必须并入后一并换算。"}, {"id": "d3q10", "type": "calc", "stem": "某啤酒生产企业没收逾期未退的包装物押金 45,200 元（含税），啤酒适用增值税税率 13%。计算该笔押金应计算的销项税额。", "options": {}, "answer": 5200.0, "unit": "元", "explain": "销项税额＝45,200÷(1＋13%)×13%＝40,000×13%＝**5,200 元**。"}]}, {"name": "计算专套 · 增值税核心计算", "questions": [{"id": "c1", "type": "calc", "stem": "（一般计税综合）某一般纳税人 2026 年 3 月：销售货物取得含税销售额 339 万元（税率 13%）；购进原材料取得专票注明税额 25 万元；购进农产品（取得农产品销售发票）买价 50 万元，用于生产应税货物；当月将部分外购货物用于职工集体福利，该批货物已抵扣进项税额 2 万元。计算当月应纳增值税。", "options": {}, "answer": 11.5, "unit": "万元", "explain": "销项＝339÷1.13×13%＝39（万元）；进项＝25＋50×9%－2（集体福利转出）＝25＋4.5－2＝27.5（万元）；应纳＝39－27.5＝**11.5 万元**。考点：外购货物用于集体福利不视同应税交易，但进项不得抵扣、已抵扣要转出。"}, {"id": "c2", "type": "calc", "stem": "（不得抵扣进项的划分）某生产企业兼营免税项目且无法划分不得抵扣的进项税额。当月全部可抵扣进项税额 100 万元，免税项目销售额 200 万元，全部销售额 1,000 万元。计算当月实际可抵扣的进项税额。", "options": {}, "answer": 80, "unit": "万元", "explain": "不得抵扣＝100×200÷1,000＝20（万元）；可抵扣＝100－20＝**80 万元**。公式：不得抵扣的进项税额＝当月全部进项×当月免税项目销售额÷当月全部销售额。"}, {"id": "c3", "type": "calc", "stem": "（农产品加计扣除）某食品生产企业购进农产品买价 100 万元，全部用于生产税率 13% 的货物。按现行规定，农产品按 9% 计算抵扣，用于生产 13% 税率货物时可加计扣除 1%。计算可抵扣进项税额。", "options": {}, "answer": 10, "unit": "万元", "explain": "可抵扣＝100×(9%＋1%)＝**10 万元**。加计 1% 在领用时点加计，属于「算抵扣＋加计」的组合套路。"}, {"id": "c4", "type": "calc", "stem": "（出口免抵退）某生产企业当月出口货物离岸价折合人民币 500 万元（征税率、退税率均为 13%，无免税料件），当月内销货物销项税额 30 万元，当月可抵扣进项税额合计 80 万元。计算当月应纳（退）税额及免抵税额。（本网页版只填应退税额；免抵税额见解析）", "options": {}, "answer": 50, "unit": "万元", "explain": "征退税率一致，不得免征和抵扣税额＝500×(13%－13%)＝0；应纳税额＝30－80＝－50（万元），期末留抵 50 万元；免抵退税额＝500×13%＝65（万元）；留抵 50＜65，应退税额＝**50 万元**，免抵税额＝65－50＝**15 万元**。口诀：退税取「留抵」与「免抵退税额」孰小。"}, {"id": "c5", "type": "calc", "stem": "（简易计税）某建筑企业（一般纳税人）以清包工方式提供建筑服务，取得含税工程款 1,030 万元，选择简易计税（征收率 3%）。计算应纳税额。", "options": {}, "answer": 30, "unit": "万元", "explain": "应纳税额＝1,030÷1.03×3%＝**30 万元**。"}, {"id": "c6", "type": "calc", "stem": "（不动产简易）某一般纳税人销售 2016 年 4 月 30 日前取得的不动产，取得含税售价 1,050 万元，选择简易计税（征收率 5%）。计算应纳税额。", "options": {}, "answer": 50, "unit": "万元", "explain": "应纳税额＝1,050÷1.05×5%＝**50 万元**。2016 年 4 月 30 日前取得的不动产，一般纳税人可选择简易计税，征收率 5%。"}, {"id": "c7", "type": "calc", "stem": "（差额征税）某劳务派遣公司选择差额纳税（简易计税，征收率 5%），当月取得含税收入 105 万元，其中代用工单位支付给派遣员工的工资、福利和社保住房公积金合计 84 万元。计算应纳税额。", "options": {}, "answer": 1, "unit": "万元", "explain": "应纳税额＝(105－84)÷1.05×5%＝21÷1.05×5%＝**1 万元**。差额征税先扣减、再换算、后乘征收率，顺序不能反。"}, {"id": "c8", "type": "calc", "stem": "（贷款服务）某企业当月取得贷款服务利息收入（含税）106 万元，适用税率 6%。计算销项税额。", "options": {}, "answer": 6, "unit": "万元", "explain": "销项税额＝106÷1.06×6%＝**6 万元**。利息收入是含税收入，先价税分离。"}, {"id": "c9", "type": "calc", "stem": "（视同应税交易的核定）某企业将自产货物无偿赠送客户，无同类货物销售价格，该批货物生产成本 80 万元，成本利润率 10%，税率 13%。计算销项税额。", "options": {}, "answer": 11.44, "unit": "万元", "explain": "组成计税价格＝80×(1＋10%)＝88（万元）；销项税额＝88×13%＝**11.44 万元**。无同类价时用组成计税价格，这是核定顺序的第三顺位（前两顺位见第一批第 3 天单选 6）。"}, {"id": "c10", "type": "calc", "stem": "（月末综合）某一般纳税人当月：销售货物含税销售额 226 万元（税率 13%）；取得专票注明进项税额 15 万元；取得海关进口增值税专用缴款书注明税额 8 万元；购进农产品买价 30 万元（按 9% 计算抵扣）；因管理不善发生原材料损失，该批材料成本 10 万元（原已按 13% 抵扣进项）。计算当月应纳增值税。", "options": {}, "answer": 1.6, "unit": "万元", "explain": "销项＝226÷1.13×13%＝26（万元）；可抵扣进项＝15＋8＋30×9%－10×13%（非正常损失转出）＝15＋8＋2.7－1.3＝24.4（万元）；应纳＝26－24.4＝**1.6 万元**。考点串联：专票＋缴款书＋农产品算抵扣＋非正常损失转出，一道题四个点，这是综合分析题的典型结构。"}]}];
+const ALL = SETS.flatMap((s,si)=>s.questions.map(q=>({...q,set:si})));
+const LS_KEY='shuifa1_progress_v1', LS_WRONG='shuifa1_wrong_v1';
+let progress = JSON.parse(localStorage.getItem(LS_KEY)||'{}');   // id -> {choice, correct}
+let wrong = JSON.parse(localStorage.getItem(LS_WRONG)||'[]');    // [id]
+let tab='practice', curSet=0, exam=null;
+const $=s=>document.querySelector(s);
+function save(){localStorage.setItem(LS_KEY,JSON.stringify(progress));localStorage.setItem(LS_WRONG,JSON.stringify(wrong));}
+function markWrong(id,bad){ wrong = wrong.filter(x=>x!==id); if(bad) wrong.push(id); }
+function showTab(t){ tab=t; exam=null;
+  ['practice','exam','wrong'].forEach(x=>$('#tab-'+x).classList.toggle('on',x===t));
+  if(t==='practice') renderSets(); if(t==='exam') renderExamHome(); if(t==='wrong') renderWrong(); }
+
+function renderSets(){
+  let done=ALL.filter(q=>progress[q.id]).length;
+  $('#app').innerHTML = `<div class="card"><div class="meta">总进度 ${done} / ${ALL.length} 题</div>
+    <div class="bar" style="margin-top:8px"><i style="width:${ALL.length?done/ALL.length*100:0}%"></i></div></div>`
+    + SETS.map((s,i)=>{const d=s.questions.filter(q=>progress[q.id]).length;
+      return `<button class="setbtn" onclick="openSet(${i})"><b>${s.name}</b><br><small>${s.questions.length} 题 · 已做 ${d} 题</small></button>`}).join('');
+}
+function openSet(i){ curSet=i; renderQuestions(SETS[i].questions, SETS[i].name, ()=>renderSets()); }
+
+function renderQuestions(list, title, back){
+  const app=$('#app');
+  app.innerHTML = `<div class="row"><button class="btn" onclick="backFn()">← 返回</button></div>
+    <h3 style="margin:12px 2px">${title}</h3>` +
+    list.map((q,idx)=>qHTML(q,idx)).join('');
+  window.backFn=back;
+  list.forEach(q=>restore(q));
+}
+function qHTML(q,idx){
+  const head=`<div class="qtag">${q.type==='single'?'单选题':q.type==='multi'?'多选题（多选）':'计算题'} · 第 ${idx+1} 题</div><div class="stem">${esc(q.stem)}</div>`;
+  let body='';
+  if(q.type==='calc'){
+    body=`<input class="num" id="in-${q.id}" type="number" inputmode="decimal" placeholder="输入答案（单位：${q.unit}）">
+          <div class="row"><button class="btn pri" onclick="gradeCalc('${q.id}')">提交答案</button></div>`;
+  }else{
+    body=Object.keys(q.options).sort().map(k=>
+      `<button class="opt" id="opt-${q.id}-${k}" onclick="pick('${q.id}','${k}',${q.type==='multi'})">${k}. ${esc(q.options[k])}</button>`).join('')
+      +`<div class="row"><button class="btn pri" onclick="gradeChoice('${q.id}')">提交答案</button></div>`;
+  }
+  return `<div class="card" id="card-${q.id}">${head}${body}
+    <div class="exp" id="exp-${q.id}"></div></div>`;
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+const selState={};
+function pick(id,k,multi){
+  if(progress[id]) return;
+  selState[id]=selState[id]||new Set();
+  if(multi){ selState[id].has(k)?selState[id].delete(k):selState[id].add(k); }
+  else selState[id]=new Set([k]);
+  document.querySelectorAll(`[id^="opt-${id}-"]`).forEach(b=>b.classList.remove('sel'));
+  selState[id].forEach(x=>{const b=document.getElementById(`opt-${id}-${x}`); if(b) b.classList.add('sel');});
+}
+function verdict(id,ok,ansText,q){
+  const e=document.getElementById('exp-'+id);
+  e.classList.add('show');
+  e.innerHTML=`<span class="verdict ${ok?'ok':'bad'}">${ok?'✓ 答对了':'✗ 答错了'}</span>　正确答案：<b>${ansText}</b>`+(q.explain?`\n解析：${esc(q.explain)}`:'');
+  progress[id]={correct:ok}; markWrong(id,!ok); save();
+}
+function gradeChoice(id){
+  const q=ALL.find(x=>x.id===id); const sel=selState[id];
+  if(!sel||sel.size===0){alert('先选一个答案');return;}
+  const mine=[...sel].sort().join(''), ans=String(q.answer).split('').sort().join('');
+  const ok = mine===ans;
+  [...String(q.answer)].forEach(k=>{const b=document.getElementById(`opt-${id}-${k}`); if(b) b.classList.add('right');});
+  if(!ok) sel.forEach(k=>{const b=document.getElementById(`opt-${id}-${k}`); if(b) b.classList.add('wrong');});
+  verdict(id,ok,String(q.answer),q);
+}
+function gradeCalc(id){
+  const q=ALL.find(x=>x.id===id); const v=parseFloat(document.getElementById('in-'+id).value);
+  if(isNaN(v)){alert('先输入数字答案');return;}
+  const ok=Math.abs(v-Number(q.answer))<=Math.max(0.02,Math.abs(Number(q.answer))*0.001);
+  verdict(id,ok,`${q.answer} ${q.unit}`,q);
+}
+function restore(q){
+  if(!progress[q.id]) return;
+  const e=document.getElementById('exp-'+q.id); if(!e) return;
+  const ok=progress[q.id].correct;
+  e.classList.add('show');
+  e.innerHTML=`<span class="verdict ${ok?'ok':'bad'}">${ok?'✓ 已答对':'✗ 已答错（在错题本里）'}</span>　正确答案：<b>${q.type==='calc'?q.answer+' '+q.unit:q.answer}</b>`+(q.explain?`\n解析：${esc(q.explain)}`:'');
+  if(q.type!=='calc') [...String(q.answer)].forEach(k=>{const b=document.getElementById(`opt-${q.id}-${k}`); if(b) b.classList.add('right');});
+}
+
+/* 模拟考试：随机 20 题，30 分钟 */
+function renderExamHome(){
+  $('#app').innerHTML=`<div class="card"><h3 style="margin:4px 0">模拟考试</h3>
+  <p class="meta">从题库随机抽 20 题（客观题为主、含计算题），限时 30 分钟，交卷后统一判分。真考是 140 分/150 分钟，这里是碎片版，用来练手感和查漏。</p>
+  <div class="row"><button class="btn pri" onclick="startExam()">开始考试</button></div></div>`;
+}
+function startExam(){
+  const pool=[...ALL].sort(()=>Math.random()-0.5).slice(0,20);
+  exam={list:pool,left:30*60,timer:null,answers:{}};
+  renderQuestions(pool,'模拟考试（20 题）',()=>{clearInterval(exam.timer);showTab('exam');});
+  document.querySelectorAll('#app .card .btn.pri').forEach(b=>{ if(b.textContent.includes('提交')) b.style.display='none'; });
+  const h=document.createElement('div'); h.className='card'; h.id='examhead';
+  h.innerHTML=`<span class="timer" id="timer">30:00</span>　<span class="meta">答完点下方交卷</span>
+    <div class="row"><button class="btn pri" onclick="submitExam()">交卷</button></div>`;
+  $('#app').prepend(h);
+  exam.timer=setInterval(()=>{ exam.left--;
+    const t=document.getElementById('timer'); if(t) t.textContent=`${String(Math.floor(exam.left/60)).padStart(2,'0')}:${String(exam.left%60).padStart(2,'0')}`;
+    if(exam.left<=0){clearInterval(exam.timer);submitExam();} },1000);
+  // 考试模式：改判分方式为只记录不揭示
+  pool.forEach(q=>{ delete progress[q.id]; });
+}
+function submitExam(){
+  if(!exam) return; clearInterval(exam.timer);
+  let score=0; const total=exam.list.length;
+  exam.list.forEach(q=>{
+    let ok=false;
+    if(q.type==='calc'){ const el=document.getElementById('in-'+q.id); const v=el?parseFloat(el.value):NaN;
+      ok=!isNaN(v)&&Math.abs(v-Number(q.answer))<=Math.max(0.02,Math.abs(Number(q.answer))*0.001); }
+    else { const sel=selState[q.id]; if(sel&&sel.size){ ok=[...sel].sort().join('')===String(q.answer).split('').sort().join(''); } }
+    if(ok) score++; else markWrong(q.id,true);
+    progress[q.id]={correct:ok};
+  });
+  save();
+  const head=document.getElementById('examhead');
+  if(head) head.innerHTML=`<div class="score">${score} / ${total}</div><p class="meta">已交卷。下面逐题看对错和解析，错题已自动进错题本。</p>`;
+  exam.list.forEach(q=>restore(q));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* 错题本 */
+function renderWrong(){
+  const list=ALL.filter(q=>wrong.includes(q.id));
+  if(!list.length){ $('#app').innerHTML=`<div class="empty">错题本是空的，做错的题会自动收进来。</div>`; return; }
+  renderQuestions(list,`错题本（${list.length} 题）`,()=>showTab('wrong'));
+  const d=document.createElement('div'); d.className='row';
+  d.innerHTML=`<button class="btn" onclick="if(confirm('清空错题本？')){wrong=[];save();showTab('wrong');}">清空错题本</button>`;
+  $('#app').appendChild(d);
+}
+renderSets();
+</script>
+</body>
+</html>
