@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>税法一学习进度仪表盘</title>
+<style>body{font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;max-width:900px;margin:0 auto;padding:16px;color:#222}h1{font-size:22px}h2{font-size:18px;margin-top:28px}h3{font-size:15px;margin:16px 0 6px}.cd{font-size:28px;font-weight:700;color:#b00}.card{border:1px solid #ddd;border-radius:10px;padding:12px;margin:8px 0}.num{text-align:center}table{width:100%;border-collapse:collapse}th,td{border-bottom:1px solid #eee;padding:6px;text-align:left}.bar{height:10px;background:#eee;border-radius:5px;overflow:hidden}.barfill{display:block;height:100%;width:0;background:#2a7}label{display:block;margin:4px 0}.note{color:#666;font-size:13px}a{color:#06c}</style></head>
+<body>
+<h1>税法一学习进度仪表盘</h1>
+<p class="note">考试：2026 年 11 月 14 日 09:00–11:30（税务师·税法一）｜本页数据截至 2026-10-27，考试前每天核对题库后更新，考试结束后停止更新。</p>
+<div class="card"><div>距考试开考还有</div><div class="cd" id="cd">计算中…</div><div id="days"></div></div>
+<div class="card"><b>题库</b>：税法一 285 题 · 25 套 · 知识卡片 28 条 · 全库 795 题（税法一为其中一部分）<br>
+<b>刷题进度</b>：<span id="done">—</span> · <b>正确率</b>：<span id="acc">—</span> · <b>错题本</b>：<span id="wrong">—</span> 题<br>
+<b>大纲掌握</b>：<span id="mast">—</span> / 39 项<br>
+<span class="note">刷题与错题数读取自同一浏览器里考试库页面存的进度（exam_tax1_progress_v1 / exam_tax1_wrong_v1）；若你没在该浏览器上做过题，这里显示 0，属正常。掌握勾选只存在本浏览器本地，不上传、不跨设备同步。</span></div>
+<h2>按章进度</h2>
+<table><tr><th>章节</th><th>题库题数</th><th>已做</th><th>正确率</th><th>掌握勾选</th><th>掌握进度</th></tr>
+<tr data-ch="ch1"><td>第一章 税法基本原理</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch2"><td>第二章 增值税</td><td class="num">50</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch3"><td>第三章 消费税</td><td class="num">30</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch4"><td>第四章 城建税及附加</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch5"><td>第五章 土地增值税</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch6"><td>第六章 资源税</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch7"><td>第七章 车辆购置税</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch8"><td>第八章 环境保护税</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch9"><td>第九章 烟叶税</td><td class="num">5</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch10"><td>第十章 关税</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch11"><td>第十一章 社会保险费</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="ch12"><td>第十二章 非税收入</td><td class="num">10</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+<tr data-ch="mixed"><td>综合 / 全真模拟</td><td class="num">110</td><td class="done">—</td><td class="acc">—</td><td class="mast">—</td><td><div class="bar"><i class="barfill"></i></div></td></tr>
+</table>
+<p class="note">综合 / 全真模拟行含第 4 天混合套、综合易错套与全真模拟 80 题，不重复计入单章；故各章题数之和＝税法一总题数。</p>
+<h2>大纲掌握勾选（打钩即计入进度）</h2>
+<h3>第一章 税法基本原理</h3>
+<label><input type="checkbox" data-mastery="ch1_0"> 税制要素拆解</label>
+<label><input type="checkbox" data-mastery="ch1_1"> 税收法律关系</label>
+<label><input type="checkbox" data-mastery="ch1_2"> 税收法定/公平/效率/实质课税</label>
+<h3>第二章 增值税</h3>
+<label><input type="checkbox" data-mastery="ch2_0"> 视同三项 vs 不得抵扣</label>
+<label><input type="checkbox" data-mastery="ch2_1"> 13%/9%/6% 与简易 3%/5%</label>
+<label><input type="checkbox" data-mastery="ch2_2"> 一般计税与农产品抵扣</label>
+<label><input type="checkbox" data-mastery="ch2_3"> 发票、免抵退与免退税</label>
+<h3>第三章 消费税</h3>
+<label><input type="checkbox" data-mastery="ch3_0"> 复合计税（白酒/卷烟）</label>
+<label><input type="checkbox" data-mastery="ch3_1"> 委托加工组价与代收代缴</label>
+<label><input type="checkbox" data-mastery="ch3_2"> 外购已税扣除清单</label>
+<label><input type="checkbox" data-mastery="ch3_3"> 零售/批发环节</label>
+<h3>第四章 城建税及附加</h3>
+<label><input type="checkbox" data-mastery="ch4_0"> 分档 7%/5%/1%</label>
+<label><input type="checkbox" data-mastery="ch4_1"> 计税依据（实缴增值税+消费税）</label>
+<label><input type="checkbox" data-mastery="ch4_2"> 附加 3%+2%</label>
+<h3>第五章 土地增值税</h3>
+<label><input type="checkbox" data-mastery="ch5_0"> 扣除项目</label>
+<label><input type="checkbox" data-mastery="ch5_1"> 开发费用 10% 与加计 20%</label>
+<label><input type="checkbox" data-mastery="ch5_2"> 四级税率与速算扣除系数</label>
+<h3>第六章 资源税</h3>
+<label><input type="checkbox" data-mastery="ch6_0"> 从价为主、从量为辅</label>
+<label><input type="checkbox" data-mastery="ch6_1"> 减征情形</label>
+<label><input type="checkbox" data-mastery="ch6_2"> 纳税地点</label>
+<h3>第七章 车辆购置税</h3>
+<label><input type="checkbox" data-mastery="ch7_0"> 税率 10% 与计税价格</label>
+<label><input type="checkbox" data-mastery="ch7_1"> 进口自用组价</label>
+<label><input type="checkbox" data-mastery="ch7_2"> 免税与退税</label>
+<h3>第八章 环境保护税</h3>
+<label><input type="checkbox" data-mastery="ch8_0"> 直接排放纳税人</label>
+<label><input type="checkbox" data-mastery="ch8_1"> 污染当量计算</label>
+<label><input type="checkbox" data-mastery="ch8_2"> 免征与减征</label>
+<h3>第九章 烟叶税</h3>
+<label><input type="checkbox" data-mastery="ch9_0"> 税率 20% 与收购价款</label>
+<label><input type="checkbox" data-mastery="ch9_1"> 收购环节</label>
+<h3>第十章 关税</h3>
+<label><input type="checkbox" data-mastery="ch10_0"> 完税价格</label>
+<label><input type="checkbox" data-mastery="ch10_1"> 进口链条（关税→消费税→增值税）</label>
+<label><input type="checkbox" data-mastery="ch10_2"> 减免与补征追征</label>
+<h3>第十一章 社会保险费</h3>
+<label><input type="checkbox" data-mastery="ch11_0"> 五险缴费主体</label>
+<label><input type="checkbox" data-mastery="ch11_1"> 养老 16%/8%</label>
+<label><input type="checkbox" data-mastery="ch11_2"> 登记与申报缴纳</label>
+<h3>第十二章 非税收入</h3>
+<label><input type="checkbox" data-mastery="ch12_0"> 非税收入分项</label>
+<label><input type="checkbox" data-mastery="ch12_1"> 收支两条线与管理要求</label>
+<h3>综合 / 全真模拟</h3>
+<label><input type="checkbox" data-mastery="mixed_0"> 全真模拟 80 题限时做一遍</label>
+<label><input type="checkbox" data-mastery="mixed_1"> 错题本清零一遍</label>
+<label><input type="checkbox" data-mastery="mixed_2"> 计算题四步模板默写</label>
+
+<p><a href="https://vlionsliang.github.io/lanao.github.io/exam-library/">去考试库刷题 →</a></p>
+<p class="note">使用建议：主干（增值税、消费税、土增）先勾满；薄章靠“概念＋1 个例算”过关；多选题不确定的宁可少选，错选整题 0 分。</p>
+<script>
+const IDMAP = {"tax1_d1q1": "ch2", "tax1_d1q2": "ch2", "tax1_d1q3": "ch2", "tax1_d1q4": "ch2", "tax1_d1q5": "ch2", "tax1_d1q6": "ch2", "tax1_d1q7": "ch2", "tax1_d1q8": "ch2", "tax1_d1q9": "ch2", "tax1_d1q10": "ch2", "tax1_d2q1": "ch2", "tax1_d2q2": "ch2", "tax1_d2q3": "ch2", "tax1_d2q4": "ch2", "tax1_d2q5": "ch2", "tax1_d2q6": "ch2", "tax1_d2q7": "ch2", "tax1_d2q8": "ch2", "tax1_d2q9": "ch2", "tax1_d2q10": "ch2", "tax1_d3q1": "ch2", "tax1_d3q2": "ch2", "tax1_d3q3": "ch2", "tax1_d3q4": "ch2", "tax1_d3q5": "ch2", "tax1_d3q6": "ch2", "tax1_d3q7": "ch2", "tax1_d3q8": "ch2", "tax1_d3q9": "ch2", "tax1_d3q10": "ch2", "tax1_c1": "ch2", "tax1_c2": "ch2", "tax1_c3": "ch2", "tax1_c4": "ch2", "tax1_c5": "ch2", "tax1_c6": "ch2", "tax1_c7": "ch2", "tax1_c8": "ch2", "tax1_c9": "ch2", "tax1_c10": "ch2", "tax1_e1": "ch2", "tax1_e2": "ch2", "tax1_e3": "ch2", "tax1_e4": "ch2", "tax1_e5": "ch2", "tax1_e6": "ch2", "tax1_e7": "ch2", "tax1_e8": "ch2", "tax1_e9": "ch2", "tax1_e10": "ch2", "tax1_f1": "ch3", "tax1_f2": "ch3", "tax1_f3": "ch3", "tax1_f4": "ch3", "tax1_f5": "ch3", "tax1_f6": "ch3", "tax1_f7": "ch3", "tax1_f8": "ch3", "tax1_f9": "ch3", "tax1_f10": "ch3", "tax1_x1": "ch3", "tax1_x2": "ch3", "tax1_x3": "ch3", "tax1_x4": "ch3", "tax1_x5": "ch3", "tax1_x6": "ch3", "tax1_x7": "ch3", "tax1_x8": "ch3", "tax1_x9": "ch3", "tax1_x10": "ch3", "tax1_g1": "ch3", "tax1_g2": "ch3", "tax1_g3": "ch3", "tax1_g4": "ch3", "tax1_g5": "ch3", "tax1_g6": "ch3", "tax1_g7": "ch3", "tax1_g8": "ch3", "tax1_g9": "ch3", "tax1_g10": "ch3", "tax1_h1": "ch5", "tax1_h2": "ch5", "tax1_h3": "ch5", "tax1_h4": "ch5", "tax1_h5": "ch5", "tax1_h6": "ch5", "tax1_h7": "ch5", "tax1_h8": "ch5", "tax1_h9": "ch5", "tax1_h10": "ch5", "tax1_i1": "mixed", "tax1_i2": "mixed", "tax1_i3": "mixed", "tax1_i4": "mixed", "tax1_i5": "mixed", "tax1_i6": "mixed", "tax1_i7": "mixed", "tax1_i8": "mixed", "tax1_i9": "mixed", "tax1_i10": "mixed", "tax1_j1": "mixed", "tax1_j2": "mixed", "tax1_j3": "mixed", "tax1_j4": "mixed", "tax1_j5": "mixed", "tax1_j6": "mixed", "tax1_j7": "mixed", "tax1_j8": "mixed", "tax1_j9": "mixed", "tax1_j10": "mixed", "tax1_y1": "mixed", "tax1_y2": "mixed", "tax1_y3": "mixed", "tax1_y4": "mixed", "tax1_y5": "mixed", "tax1_y6": "mixed", "tax1_y7": "mixed", "tax1_y8": "mixed", "tax1_y9": "mixed", "tax1_y10": "mixed", "tax1_a1": "mixed", "tax1_a2": "mixed", "tax1_a3": "mixed", "tax1_a4": "mixed", "tax1_a5": "mixed", "tax1_a6": "mixed", "tax1_a7": "mixed", "tax1_a8": "mixed", "tax1_a9": "mixed", "tax1_a10": "mixed", "tax1_a11": "mixed", "tax1_a12": "mixed", "tax1_a13": "mixed", "tax1_a14": "mixed", "tax1_a15": "mixed", "tax1_a16": "mixed", "tax1_a17": "mixed", "tax1_a18": "mixed", "tax1_a19": "mixed", "tax1_a20": "mixed", "tax1_a21": "mixed", "tax1_a22": "mixed", "tax1_a23": "mixed", "tax1_a24": "mixed", "tax1_a25": "mixed", "tax1_a26": "mixed", "tax1_a27": "mixed", "tax1_a28": "mixed", "tax1_a29": "mixed", "tax1_a30": "mixed", "tax1_a31": "mixed", "tax1_a32": "mixed", "tax1_a33": "mixed", "tax1_a34": "mixed", "tax1_a35": "mixed", "tax1_a36": "mixed", "tax1_a37": "mixed", "tax1_a38": "mixed", "tax1_a39": "mixed", "tax1_a40": "mixed", "tax1_b1": "mixed", "tax1_b2": "mixed", "tax1_b3": "mixed", "tax1_b4": "mixed", "tax1_b5": "mixed", "tax1_b6": "mixed", "tax1_b7": "mixed", "tax1_b8": "mixed", "tax1_b9": "mixed", "tax1_b10": "mixed", "tax1_b11": "mixed", "tax1_b12": "mixed", "tax1_b13": "mixed", "tax1_b14": "mixed", "tax1_b15": "mixed", "tax1_b16": "mixed", "tax1_b17": "mixed", "tax1_b18": "mixed", "tax1_b19": "mixed", "tax1_b20": "mixed", "tax1_k1": "mixed", "tax1_k2": "mixed", "tax1_k3": "mixed", "tax1_k4": "mixed", "tax1_k5": "mixed", "tax1_k6": "mixed", "tax1_k7": "mixed", "tax1_k8": "mixed", "tax1_z1": "mixed", "tax1_z2": "mixed", "tax1_z3": "mixed", "tax1_z4": "mixed", "tax1_z5": "mixed", "tax1_z6": "mixed", "tax1_z7": "mixed", "tax1_z8": "mixed", "tax1_z9": "mixed", "tax1_z10": "mixed", "tax1_z11": "mixed", "tax1_z12": "mixed", "tax1_ch1_1": "ch1", "tax1_ch1_2": "ch1", "tax1_ch1_3": "ch1", "tax1_ch1_4": "ch1", "tax1_ch1_5": "ch1", "tax1_ch1_6": "ch1", "tax1_ch1_7": "ch1", "tax1_ch1_8": "ch1", "tax1_ch1_9": "ch1", "tax1_ch1_10": "ch1", "tax1_ct_1": "ch4", "tax1_ct_2": "ch4", "tax1_ct_3": "ch4", "tax1_ct_4": "ch4", "tax1_ct_5": "ch4", "tax1_ct_6": "ch4", "tax1_ct_7": "ch4", "tax1_ct_8": "ch4", "tax1_ct_9": "ch4", "tax1_ct_10": "ch4", "tax1_yan_1": "ch9", "tax1_yan_2": "ch9", "tax1_yan_3": "ch9", "tax1_yan_4": "ch9", "tax1_yan_5": "ch9", "tax1_sb_1": "ch11", "tax1_sb_2": "ch11", "tax1_sb_3": "ch11", "tax1_sb_4": "ch11", "tax1_sb_5": "ch11", "tax1_sb_6": "ch11", "tax1_sb_7": "ch11", "tax1_sb_8": "ch11", "tax1_sb_9": "ch11", "tax1_sb_10": "ch11", "tax1_fs_1": "ch12", "tax1_fs_2": "ch12", "tax1_fs_3": "ch12", "tax1_fs_4": "ch12", "tax1_fs_5": "ch12", "tax1_fs_6": "ch12", "tax1_fs_7": "ch12", "tax1_fs_8": "ch12", "tax1_fs_9": "ch12", "tax1_fs_10": "ch12", "tax1_zy_1": "ch6", "tax1_zy_2": "ch6", "tax1_zy_3": "ch6", "tax1_zy_4": "ch6", "tax1_zy_5": "ch6", "tax1_zy_6": "ch6", "tax1_zy_7": "ch6", "tax1_zy_8": "ch6", "tax1_zy_9": "ch6", "tax1_zy_10": "ch6", "tax1_cg_1": "ch7", "tax1_cg_2": "ch7", "tax1_cg_3": "ch7", "tax1_cg_4": "ch7", "tax1_cg_5": "ch7", "tax1_cg_6": "ch7", "tax1_cg_7": "ch7", "tax1_cg_8": "ch7", "tax1_cg_9": "ch7", "tax1_cg_10": "ch7", "tax1_hb_1": "ch8", "tax1_hb_2": "ch8", "tax1_hb_3": "ch8", "tax1_hb_4": "ch8", "tax1_hb_5": "ch8", "tax1_hb_6": "ch8", "tax1_hb_7": "ch8", "tax1_hb_8": "ch8", "tax1_hb_9": "ch8", "tax1_hb_10": "ch8", "tax1_gs_1": "ch10", "tax1_gs_2": "ch10", "tax1_gs_3": "ch10", "tax1_gs_4": "ch10", "tax1_gs_5": "ch10", "tax1_gs_6": "ch10", "tax1_gs_7": "ch10", "tax1_gs_8": "ch10", "tax1_gs_9": "ch10", "tax1_gs_10": "ch10"};
+const TOTAL = 285;
+const CHAPTERS = ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6", "ch7", "ch8", "ch9", "ch10", "ch11", "ch12", "mixed"];
+function tick(){ const t = new Date('2026-11-14T01:00:00Z').getTime(); const el=document.getElementById('cd'), d=document.getElementById('days'); function f(){ const ms=t-Date.now(); if(ms<=0){ el.textContent='考试已结束，本页停止更新'; d.textContent=''; return; } const dd=Math.floor(ms/86400000), hh=Math.floor(ms%86400000/3600000), mm=Math.floor(ms%3600000/60000), ss=Math.floor(ms%60000/1000); el.textContent=dd+'天 '+hh+'小时 '+mm+'分 '+ss+'秒'; d.textContent='约 '+dd+' 天后开考'; } f(); setInterval(f,1000); }
+function render(){ let prog={}, wrong=[]; try{ prog=JSON.parse(localStorage.getItem('exam_tax1_progress_v1')||'{}'); }catch(e){} try{ wrong=JSON.parse(localStorage.getItem('exam_tax1_wrong_v1')||'[]'); }catch(e){} let done=0, corr=0; const per={}; CHAPTERS.forEach(c=>per[c]={done:0,corr:0,total:0}); Object.keys(IDMAP).forEach(id=>{ const c=IDMAP[id]; per[c].total++; if(prog[id]){ per[c].done++; if(prog[id].correct){ per[c].corr++; } } }); Object.values(per).forEach(p=>{ done+=p.done; corr+=p.corr; }); document.getElementById('done').textContent=done+' / '+TOTAL+' 题'; document.getElementById('acc').textContent=done? (Math.round(corr/done*100)+'%') : '—'; document.getElementById('wrong').textContent=wrong.length; let mast={}; try{ mast=JSON.parse(localStorage.getItem('tax1_mastery_v1')||'{}'); }catch(e){} let mt=0, mc=0; document.querySelectorAll('input[data-mastery]').forEach(cb=>{ mt++; cb.checked=!!mast[cb.dataset.mastery]; if(cb.checked) mc++; cb.onchange=()=>{ mast[cb.dataset.mastery]=cb.checked; localStorage.setItem('tax1_mastery_v1', JSON.stringify(mast)); render(); }; }); document.getElementById('mast').textContent=mc; document.querySelectorAll('tr[data-ch]').forEach(tr=>{ const c=tr.dataset.ch, p=per[c]; const mcs=[...document.querySelectorAll('input[data-mastery]')].filter(x=>x.dataset.mastery.startsWith(c+'_')); const mcd=mcs.filter(x=>x.checked).length; tr.querySelector('.done').textContent=p.done+' / '+p.total; tr.querySelector('.acc').textContent=p.done? Math.round(p.corr/p.done*100)+'%' : '—'; tr.querySelector('.mast').textContent=mcd+' / '+mcs.length; tr.querySelector('.barfill').style.width=(mcs.length? Math.round(mcd/mcs.length*100):0)+'%'; }); }
+tick(); render();
+</script>
+</body></html>
